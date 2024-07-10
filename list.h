@@ -7,7 +7,7 @@ typedef struct _List List;
 
 // stuct defs
 struct _Node {
-    int data;
+    char *data;
     Node *next;
 };
 
@@ -18,8 +18,8 @@ struct _List {
 
 // function prototypes
 List * createList();
-Node * createNode(int data, Node * next);
-int insertAtHead(List * list, int data);
+Node * createNode(char * data, Node * next);
+int insertAtHead(List * list, char * data);
 void printList(List * list);
 void removeFromTail(List * list);
 void freeList(List * list);

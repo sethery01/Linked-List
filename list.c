@@ -11,7 +11,7 @@ List * createList()
     return list;
 }
 
-Node * createNode(int data, Node * next)
+Node * createNode(char * data, Node * next)
 {
     Node *p = malloc(sizeof(Node));
 
@@ -22,7 +22,7 @@ Node * createNode(int data, Node * next)
     return p;
 }
 
-int insertAtHead(List * list, int data)
+int insertAtHead(List * list, char * data)
 {
     Node * p = createNode(data, NULL);
 
@@ -46,7 +46,7 @@ void printList(List * list)
     Node *cursor = list->head;
 
     while (cursor) {
-        printf("%d ", cursor->data);
+        printf("%s  ", cursor->data);
         cursor = cursor->next;
     }
     printf("\n");
@@ -70,7 +70,7 @@ void removeFromTail(List * list)
     while (cursor->next->next) {
         cursor = cursor->next;
     }
-    
+
     free(cursor->next);
     cursor->next = NULL;
     list->size--;

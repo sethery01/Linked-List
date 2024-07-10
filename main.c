@@ -2,12 +2,12 @@
 
 int main(void)
 {
-    printf("====== LINKED LIST FUN ======\n");
+    printf("====== LINKED LIST FUN ======\n\n");
 
     List * list = createList();
 
     for (int i = 20; i > 0; i--) {
-        insertAtHead(list,i);
+        insertAtHead(list,"*");
         printList(list);
     }
 
