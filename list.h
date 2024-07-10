@@ -21,5 +21,5 @@ List * createList();
 Node * createNode(int data, Node * next);
 int insertAtHead(List * list, int data);
 void printList(List * list);
-int removeFromTail(List * list);
+void removeFromTail(List * list);
 void freeList(List * list);

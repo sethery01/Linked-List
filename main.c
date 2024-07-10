@@ -8,8 +8,13 @@ int main(void)
 
     for (int i = 20; i > 0; i--) {
         insertAtHead(list,i);
+        printList(list);
     }
 
-    printf("====== PRINTING LIST ======\n");
-    printList(list);
+    while (list->head) {
+        removeFromTail(list);
+        printList(list);
+    }
+
+    freeList(list);
 }

@@ -31,7 +31,7 @@ int insertAtHead(List * list, int data)
     }
     else if (list->head == NULL) {
         list->head = p;
-        list->size++:
+        list->size++;
     }
     else {
         p->next = list->head;
@@ -52,16 +52,34 @@ void printList(List * list)
     printf("\n");
 }
 
-void removeFromTail(List * list)
+void removeFromTail(List * list) 
 {
+    if (!list->head) {
+        return;
+    } 
+
     Node *cursor = list->head;
 
-    while(cursor) {
-        if (!cursor->next->next) {
-            cursor->next = NULL;
-            free(cursor->next);
-            list->size--;
-        }
+    if (!cursor->next) {
+        free(cursor);
+        list->head = NULL;
+        list->size--;
+        return;
+    }
+
+    while (cursor->next->next) {
         cursor = cursor->next;
     }
+    
+    free(cursor->next);
+    cursor->next = NULL;
+    list->size--;
+}
+
+void freeList(List * list) 
+{
+    while (list->head) {
+        removeFromTail(list);
+    }
+    free(list);
 }
